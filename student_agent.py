@@ -87,7 +87,7 @@ def central_dashboard():
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("student_dashboard.html")
 
 
 # Your existing CRUD API endpoints below...
