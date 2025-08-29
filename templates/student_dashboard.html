@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Agent Dashboard</title>
+  <style>
+    table, th, td { border: 1px solid black; border-collapse: collapse; padding: 8px; }
+    th { background-color: #f2f2f2; }
+  </style>
+</head>
+<body>
+  <h1>Student Agent Dashboard</h1>
+
+  <!-- Search by skill -->
+  <label for="skillSearch">Search by Skill:</label>
+  <input type="text" id="skillSearch" placeholder="Enter skill" />
+  <button onclick="searchBySkill()">Search Projects</button>
+  <div id="projects"></div>
+
+  <!-- List all profiles -->
+  <h2>All Student Profiles</h2>
+  <table id="profilesTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Education</th>
+        <th>Skills</th>
+        <th>Projects</th>
+        <th>Work</th>
+        <th>Links</th>
+        <th>View</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <!-- View specific profile details -->
+  <div id="profileDetails"></div>
+
+  <script>
+    // List all profiles on load
+    function loadProfiles() {
+      fetch("http://localhost:5001/student/all")
+        .then(res => res.json())
+        .then(profiles => {
+          const tbody = document.getElementById('profilesTable').getElementsByTagName('tbody')[0];
+          tbody.innerHTML = '';
+          profiles.forEach(profile => {
+            const row = tbody.insertRow();
+            row.insertCell().innerText = profile.name;
+            row.insertCell().innerText = profile.email;
+            row.insertCell().innerText = Array.isArray(profile.education) ? profile.education.join(', ') : '';
+            row.insertCell().innerText = Array.isArray(profile.skills) ? profile.skills.join(', ') : '';
+            row.insertCell().innerText = Array.isArray(profile.projects) ? profile.projects.join(', ') : '';
+            row.insertCell().innerText = Array.isArray(profile.work) ? profile.work.join(', ') : '';
+            // Links
+            const linksCell = row.insertCell();
+            for (const key in profile.links) {
+              const a = document.createElement('a');
+              a.href = profile.links[key];
+              a.innerText = key;
+              a.target = "_blank";
+              linksCell.appendChild(a);
+              linksCell.appendChild(document.createTextNode(' '));
+            }
+            // View button
+            const viewBtnCell = row.insertCell();
+            const btn = document.createElement('button');
+            btn.innerText = "View";
+            btn.onclick = () => viewProfile(profile.id);
+            viewBtnCell.appendChild(btn);
+          });
+        });
+    }
+
+    // Search projects by skill
+    function searchBySkill() {
+      const skill = document.getElementById('skillSearch').value.trim().toLowerCase();
+      if (!skill) return;
+      fetch(`http://localhost:5001/projects?skill=${encodeURIComponent(skill)}`)
+        .then(res => res.json())
+        .then(projects => {
+          document.getElementById('projects').innerText = "Projects: " + projects.join(', ');
+        });
+    }
+
+    // View single profile details
+    function viewProfile(id) {
+      fetch(`http://localhost:5001/student/${id}`)
+        .then(res => res.json())
+        .then(profile => {
+          document.getElementById('profileDetails').innerHTML =
+            `<h3>Profile Details</h3>
+             <pre>${JSON.stringify(profile, null, 2)}</pre>`;
+        });
+    }
+
+    // Initial load
+    loadProfiles();
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  student_agent:
+    build:
+      context: .
+      dockerfile: dockerfile
+    container_name: student_agent
+    hostname: student_agent
+    ports:
+      - "5001:5001"
+    volumes:
+          - ./data:/app/data
+          - ./:/app
+
+    networks:
+      - appnet
+    restart: unless-stopped
+    depends_on:
+      - consul
+
+  consul:
+    image: hashicorp/consul:latest
+    container_name: consul
+    ports:
+      - "8500:8500"
+    networks:
+      - appnet
+
+networks:
+  appnet:
+    driver: bridge

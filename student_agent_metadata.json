@@ -1,0 +1,6 @@
+{
+    "uuid": "cdfb54d4-aefe-435f-88f8-843cfde5abea",
+    "agent_name": "student_agent",
+    "description": "Manages student profiles with CRUD endpoints",
+    "version": "1.0"
+}
