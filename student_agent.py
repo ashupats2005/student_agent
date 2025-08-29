@@ -78,6 +78,11 @@ def get_student_profiles():
 def central_dashboard():
     return render_template('student_dashboard.html')
 
+@app.route("/")
+def home():
+    return "Student Agent is Running!"
+
+
 # Your existing CRUD API endpoints below...
 
 @app.route("/student/create", methods=["POST"])
