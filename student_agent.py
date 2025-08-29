@@ -11,13 +11,6 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-port = int(os.environ.get("PORT", 5001))
-app.run(host="0.0.0.0", port=5001)
-
-
-app = Flask(__name__)
-CORS(app)  # Step 1: Enable CORS for cross-origin frontend API calls
-
 AGENT_NAME = "student_agent"
 PORT = 5001
 
@@ -85,8 +78,6 @@ def get_student_profiles():
 def central_dashboard():
     return render_template('student_dashboard.html')
 
-from flask import Flask
-app = Flask(__name__)
 
 @app.route('/')
 def home():
@@ -239,4 +230,5 @@ def health():
 
 if __name__ == "__main__":
     init_db()
+    port = int(os.environ.get("PORT", 5001))
     app.run(host="0.0.0.0", port=5001)
