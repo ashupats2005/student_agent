@@ -85,9 +85,12 @@ def get_student_profiles():
 def central_dashboard():
     return render_template('student_dashboard.html')
 
-@app.route("/")
-def index():
-    return render_template("student_dashboard.html")
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "App is running!"
 
 
 # Your existing CRUD API endpoints below...
