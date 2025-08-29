@@ -7,6 +7,13 @@ from collections import Counter
 import sqlite3
 from flask_cors import CORS  # Step 1: Import CORS
 import requests
+import os
+app = Flask(__name__)
+CORS(app)
+
+port = int(os.environ.get("PORT", 5001))
+app.run(host="0.0.0.0", port=5001)
+
 
 app = Flask(__name__)
 CORS(app)  # Step 1: Enable CORS for cross-origin frontend API calls
@@ -79,8 +86,8 @@ def central_dashboard():
     return render_template('student_dashboard.html')
 
 @app.route("/")
-def home():
-    return "Student Agent is Running!"
+def index():
+    return render_template("index.html")
 
 
 # Your existing CRUD API endpoints below...
