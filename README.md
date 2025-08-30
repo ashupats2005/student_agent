@@ -90,6 +90,14 @@ This deployment is hosted on Railway and leverages Docker containers to simplify
 | `/search`                  | GET    | Search profiles               |
 | `/health`                  | GET    | Health check/test             |
 
+## `/projects` Route with Skill Filtering
+
+This Flask route `/projects` with a GET method implements filtering projects by a `skill` query parameter.
+
+### How it works
+
+- The skill filter is extracted from the URL query parameters using:
+
 
 ## API Testing Example
 
