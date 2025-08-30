@@ -4,7 +4,7 @@ services:
   student_agent:
     build:
       context: .
-      dockerfile: dockerfile
+      dockerfile: Dockerfile
     container_name: student_agent
     hostname: student_agent
     ports:
