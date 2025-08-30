@@ -27,12 +27,11 @@ A web application for managing student profiles, skills, projects, and education
 
 ### Local Development
 
-_ **git clone https://github.com/ashupats2005/student_agent.git
-_ **cd student_agent
-_ **docker-compose build student_agent
-_ **docker-compose up
-_ **pip install -r requirements.txt
-
+- git clone https://github.com/ashupats2005/student_agent.git
+- pip install -r requirements.txt
+- cd student_agent
+- docker-compose build student_agent
+- docker-compose up
 
 ### Deploy to Railway
 
