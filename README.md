@@ -102,6 +102,25 @@ Below is an example of testing the `/student/create` endpoint using Postman. Thi
 
 Initial student profiles, skills, and project data are loaded from `seed.sql` and displayed via the UI for demo/testing purposes.
 
+## Remarks
+
+### Limits
+- The current system uses SQLite, which is ideal for development and small-scale deployments, but may not scale for high-traffic or large datasets.
+- Project filtering is case-sensitive and exact-match; enhanced search and fuzzy matching would improve user experience.
+- JSON-encoded lists stored in a single table field limit direct database querying and may hinder complex analytics.
+
+### Trade-Offs
+- Simplicity and rapid prototyping were prioritized by using Flask with minimal dependencies and SQLite.
+- Dockerization and Railway deployment streamline setup and hosting but may abstract away lower-level infrastructure control.
+- Consul integration is optional; full service orchestration and configuration management would need further setup.
+
+### Next Steps
+- Migrate to a more robust database (e.g., PostgreSQL) for scalability.
+- Expand API endpoints for richer profile and project interactions.
+- Improve error handling, validations, and security features.
+- Enhance the UI for better data visualization and management.
+- Implement authentication and user roles for access control.
+
 
 
 
