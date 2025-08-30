@@ -68,6 +68,13 @@ This deployment is hosted on Railway and leverages Docker containers to simplify
 | `/search`                  | GET    | Search profiles               |
 | `/health`                  | GET    | Health check/test             |
 
+
+## API Testing Example
+
+Below is an example of testing the `/student/create` endpoint using Postman. This demonstrates how to send a POST request with JSON data to create a new student profile.
+
+
+
 ## Seed Data
 
 Initial student profiles, skills, and project data are loaded from `seed.sql` and displayed via the UI for demo/testing purposes.
