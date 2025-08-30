@@ -33,12 +33,15 @@ A web application for managing student profiles, skills, projects, and education
 
 ### Local Development
 
+```sh
 - git clone https://github.com/ashupats2005/student_agent.git
 - pip install -r requirements.txt
 - cd student_agent
 - docker-compose build student_agent
 - docker-compose up
-- 
+
+```
+
 ### Example of list of active healthy agents
  ![consul healthy agents list](./agents.jpg)
  
