@@ -15,7 +15,7 @@ A web application for managing student profiles, skills, projects, and education
 - **Backend:** Python (Flask, flask-cors, requests)  
 - **Database:** SQLite  
 - **Frontend:** HTML templates (Jinja2)  
-- **DevOps:** Docker, Railway
+- **DevOps:** Docker, Railway , Hashicorp consul
 
 ## Setup & Installation
 
@@ -24,7 +24,13 @@ A web application for managing student profiles, skills, projects, and education
 - Python 3.8 or higher  
 - Docker installed (for local container builds)  
 - A Railway account
-
+- HashiCorp Consul:** Used for service discovery and configuration (optional but recommended for production environments)
+- 
+### Installing Consul
+1. Download the latest Consul binary from the [official releases](https://releases.hashicorp.com/consul/).  
+2. Unzip and move the binary to your system path (e.g., `/usr/local/bin`).  
+3. Create a system user for Consul for security:
+   
 ### Local Development
 
 - git clone https://github.com/ashupats2005/student_agent.git
@@ -33,12 +39,15 @@ A web application for managing student profiles, skills, projects, and education
 - docker-compose build student_agent
 - docker-compose up
 
-### Deploy to Railway
+## Deployment
 
-1. Push your code to GitHub.
-2. On Railway, create a new project and choose “Deploy from Dockerfile” or use your DockerHub image (e.g. `ashuaitech/student_agent:latest`).
-3. Set environment variables as needed. Make sure `PORT` is mapped or the Docker CMD uses it.
-4. Railway will build and deploy your app. Your public URL will be generated.
+The Student Agent Flask application is deployed and publicly accessible at:
+
+**(https://studentagent-production.up.railway.app/)**
+
+You can open this URL in any web browser to interact with the live student profile management system. The application features a web dashboard for viewing and managing student data, along with RESTful API endpoints for programmatic access.
+
+This deployment is hosted on Railway and leverages Docker containers to simplify scalability and infrastructure management.
 
 ## API Endpoints
 
@@ -60,19 +69,7 @@ A web application for managing student profiles, skills, projects, and education
 
 Initial student profiles, skills, and project data are loaded from `seed.sql` and displayed via the UI for demo/testing purposes.
 
-## Folder Structure
 
-student_agents/
-├── student_agent.py
-├── registration.py
-├── requirements.txt
-├── Dockerfile
-├── schema.sql
-├── seed.sql
-├── data/
-│ └── student.db
-├── templates/
-│ └── student_dashboard.html
 
 
 
