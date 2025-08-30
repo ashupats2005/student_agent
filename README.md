@@ -30,7 +30,8 @@ A web application for managing student profiles, skills, projects, and education
 1. Download the latest Consul binary from the [official releases](https://releases.hashicorp.com/consul/).  
 2. Unzip and move the binary to your system path (e.g., `/usr/local/bin`).  
 3. Create a system user for Consul for security:
-![consul healthy agents list](./consulactivehealthyagentslist.jpg)
+4. ![consul healthy agents list](./agents.jpg)
+
 
 ### Local Development
 
