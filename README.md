@@ -30,9 +30,6 @@ A web application for managing student profiles, skills, projects, and education
 1. Download the latest Consul binary from the [official releases](https://releases.hashicorp.com/consul/).  
 2. Unzip and move the binary to your system path (e.g., `/usr/local/bin`).  
 3. Create a system user for Consul for security:
-### Example of list of active healthy agents
- ![consul healthy agents list](./agents.jpg)
-
 
 ### Local Development
 
@@ -41,7 +38,10 @@ A web application for managing student profiles, skills, projects, and education
 - cd student_agent
 - docker-compose build student_agent
 - docker-compose up
-
+- 
+### Example of list of active healthy agents
+ ![consul healthy agents list](./agents.jpg)
+ 
 ## Deployment
 
 The Student Agent Flask application is deployed and publicly accessible at:
