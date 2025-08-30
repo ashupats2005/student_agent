@@ -27,13 +27,14 @@ This document describes the schema for the `student_profile` table used in the S
 
 ## Example schema.sql snippet
 
+```sql
 CREATE TABLE student_profile (
-id TEXT PRIMARY KEY,
-name TEXT NOT NULL,
-email TEXT NOT NULL UNIQUE,
-education TEXT,
-skills TEXT,
-projects TEXT,
-work TEXT,
-links TEXT
+    id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    education TEXT,
+    skills TEXT,
+    projects TEXT,
+    work TEXT,
+    links TEXT
 );
