@@ -1,6 +1,23 @@
 # Student Agent – Flask Student Profile Manager
 
 A web application for managing student profiles, skills, projects, and education, built with Flask and SQLite and deployed via Docker on Railway.
+Also the attached file below is my resume
+ ![resume](./Ashutoshresume.pdf)
+
+## Folder Structure
+```sh
+student_agents/
+├── student_agent.py
+├── registration.py
+├── requirements.txt
+├── Dockerfile
+├── schema.sql
+├── seed.sql
+├── data/
+│ └── student.db
+├── templates/
+│ └── student_dashboard.html
+```
 
 ## Features
 
@@ -83,20 +100,7 @@ Below is an example of testing the `/student/create` endpoint using Postman. Thi
 
 Initial student profiles, skills, and project data are loaded from `seed.sql` and displayed via the UI for demo/testing purposes.
 
-## Folder Structure
-```sh
-student_agents/
-├── student_agent.py
-├── registration.py
-├── requirements.txt
-├── Dockerfile
-├── schema.sql
-├── seed.sql
-├── data/
-│ └── student.db
-├── templates/
-│ └── student_dashboard.html
-```
+
 
 
 
