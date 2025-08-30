@@ -1,7 +1,8 @@
 # Student Agent – Flask Student Profile Manager
 
 A web application for managing student profiles, skills, projects, and education, built with Flask and SQLite and deployed via Docker on Railway.
-Also the attached file below is my resume
+Also the attached file is my resume
+
  ![resume](./Ashutoshresume.pdf)
 
 ## Folder Structure
