@@ -72,6 +72,7 @@ This deployment is hosted on Railway and leverages Docker containers to simplify
 ## API Testing Example
 
 Below is an example of testing the `/student/create` endpoint using Postman. This demonstrates how to send a POST request with JSON data to create a new student profile.
+ ![postmanimage](./postman.jpg)
 
 
 
