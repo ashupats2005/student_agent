@@ -37,7 +37,7 @@ save_metadata_to_json(metadata, METADATA_PATH)
 
 def init_db():
     if os.path.exists(DB_PATH):
-        os.remove(DB_PATH)  # Remove existing DB file to avoid uniqueness conflicts
+
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     with open('schema.sql') as f:
