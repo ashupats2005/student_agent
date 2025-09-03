@@ -36,15 +36,23 @@ def save_metadata_to_json(metadata, file_path):
 save_metadata_to_json(metadata, METADATA_PATH)
 
 def init_db():
-    if os.path.exists(DB_PATH):
-        conn = sqlite3.connect(DB_PATH)
-        cursor = conn.cursor()
-        with open('schema.sql') as f:
-            cursor.executescript(f.read())
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    # Always create tables, use IF NOT EXISTS in schema.sql to avoid errors
+    with open('schema.sql') as f:
+        cursor.executescript(f.read())
+
+    # Seed only if the table is empty
+    cursor.execute("SELECT COUNT(*) FROM student_profile")
+    count = cursor.fetchone()
+    if count == 0:
         with open('seed.sql') as f:
             cursor.executescript(f.read())
-        conn.commit()
-        conn.close()
+
+    conn.commit()
+    conn.close()
+
 
 
 
